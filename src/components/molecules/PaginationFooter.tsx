@@ -9,15 +9,6 @@ import PageCounter from "../atoms/PageCounter";
 const PaginationFooter = () => {
   const templateProps = useContext(templateContext);
 
-  // const { currentPage, totalPages } = useSelector(
-  //   (state: RootState) => state.templateProps
-  // );
-
-  // const dispatch = useDispatch<AppDispatch>();
-
-  // const handlePreviousPage = () => dispatch(previousPage());
-  // const handleNextPage = () => dispatch(nextPage());
-
   return (
     <div className="flex justify-between items-center py-8">
       <Button

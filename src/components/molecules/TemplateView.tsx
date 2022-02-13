@@ -1,12 +1,7 @@
-import { unwrapResult } from "@reduxjs/toolkit";
-import React, { useContext, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  fetchTemplates,
-  TemplateState,
-} from "../../app/features/template/templateSlice";
-import { AppDispatch, RootState } from "../../app/store";
-import appContext from "../../context/app.context";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
+
+import { RootState } from "../../app/store";
 import templateContext from "../../context/template.context";
 import usePaginator from "../../hooks/usePaginator";
 import TemplateViewLayout from "../../layouts/TemplateViewLayout";

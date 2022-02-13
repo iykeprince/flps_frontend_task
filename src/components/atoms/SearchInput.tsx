@@ -20,6 +20,7 @@ const SearchInput = ({
         id="search_template"
         placeholder="Search Template"
         className="form-input w-full px-4 py-2 focus:outline-none"
+        value={value}
         onChange={(e) => handleSearch(e.target.value)}
       />
     </div>
