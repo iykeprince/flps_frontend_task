@@ -1,25 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import Navbar from "./components/molecules/Navbar";
+import Notification from "./components/molecules/Notification";
+import TemplateView from "./components/molecules/TemplateView";
+import DefaultLayout from "./layouts/DefaultLayout";
+import templateContext from "./context/template.context";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "./app/store";
+import { fetchTemplates } from "./app/features/template/templateSlice";
+import appContext from "./context/app.context";
 
 function App() {
+  const dispatch = useDispatch<AppDispatch>();
+  const templateState = useSelector((state: RootState) => state.template);
+
+  const loadTemplatesAsync = async () => {
+    await dispatch(fetchTemplates()).unwrap();
+  };
+
+  React.useEffect(() => {
+    loadTemplatesAsync();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <appContext.Provider value={templateState}>
+      <DefaultLayout>
+        <Navbar />
+        <Notification />
+        <TemplateView />
+      </DefaultLayout>
+    </appContext.Provider>
   );
 }
 

@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> it should render our snapshot correctly 1`] = `
+<button
+  className="flex items-center"
+  onClick={[MockFunction]}
+>
+  Button
+   
+</button>
+`;
